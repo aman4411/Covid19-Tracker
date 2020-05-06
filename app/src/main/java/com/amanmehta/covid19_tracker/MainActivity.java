@@ -2,9 +2,11 @@ package com.amanmehta.covid19_tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,12 +26,13 @@ import org.json.JSONObject;
 
 import java.io.StringReader;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView tvCases,tvRecovered,tvCritical,tvActive,tvTodayCases,tvTotalDeaths,tvTodayDeaths,tvCountriesAffected;
     ScrollView scrollStats;
     SimpleArcLoader simpleArcLoader;
     PieChart pieChart;
+    Button btnTrack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         scrollStats = findViewById(R.id.scrollStats);
         pieChart = findViewById(R.id.piechart);
         simpleArcLoader = findViewById(R.id.loader);
+        btnTrack = findViewById(R.id.btnTrack);
+
+        btnTrack.setOnClickListener(this);
         
         fetchData();
     }
@@ -102,5 +108,12 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == btnTrack){
+            startActivity(new Intent(getApplicationContext(),AffectedCountries.class));
+        }
     }
 }
