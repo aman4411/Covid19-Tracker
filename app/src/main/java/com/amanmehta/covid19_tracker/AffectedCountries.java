@@ -3,12 +3,13 @@ package com.amanmehta.covid19_tracker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -62,6 +63,14 @@ public class AffectedCountries extends AppCompatActivity {
         
         fetchData();
 
+        countryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(getApplicationContext(),CountryStats.class).putExtra("position",i));
+            }
+        });
+
+//        Searching from Search Bar
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -104,11 +113,12 @@ public class AffectedCountries extends AppCompatActivity {
                         String recovered = jsonObject.getString("recovered");
                         String active = jsonObject.getString("active");
                         String critical = jsonObject.getString("critical");
+                        String tests = jsonObject.getString("tests");
 
                         JSONObject object = jsonObject.getJSONObject("countryInfo");
                         String flagUrl = object.getString("flag");
 
-                        countryModel = new CountryModel(flagUrl,countryName,cases,todayCases,deaths,todayDeaths,recovered,active,critical);
+                        countryModel = new CountryModel(flagUrl,countryName,cases,todayCases,deaths,todayDeaths,recovered,active,critical,tests);
                         countryModellist.add(countryModel);
                     }
 

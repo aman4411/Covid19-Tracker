@@ -28,7 +28,7 @@ import java.io.StringReader;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView tvCases,tvRecovered,tvCritical,tvActive,tvTodayCases,tvTotalDeaths,tvTodayDeaths,tvCountriesAffected;
+    TextView tvCases,tvRecovered,tvCritical,tvActive,tvTodayCases,tvTotalDeaths,tvTodayDeaths,tvTests,tvCountriesAffected;
     ScrollView scrollStats;
     SimpleArcLoader simpleArcLoader;
     PieChart pieChart;
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvTodayCases = findViewById(R.id.tvTodayCases);
         tvTotalDeaths = findViewById(R.id.tvTotalDeaths);
         tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
+        tvTests = findViewById(R.id.tvTests);
         tvCountriesAffected = findViewById(R.id.tvCountriesAffected);
 
         scrollStats = findViewById(R.id.scrollStats);
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tvTodayCases.setText(jsonObject.getString("todayCases"));
                     tvTotalDeaths.setText(jsonObject.getString("deaths"));
                     tvTodayDeaths.setText(jsonObject.getString("todayDeaths"));
+                    tvTests.setText(jsonObject.getString("tests"));
                     tvCountriesAffected.setText(jsonObject.getString("affectedCountries"));
 
 //                    Setting Data in Pie Chart
