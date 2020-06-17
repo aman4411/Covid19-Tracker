@@ -23,7 +23,10 @@
         </activity>
         <activity android:name=".CountryStats" />
         <activity android:name=".AffectedCountries" />
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Covid19 Tracker"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/color_white">
+    android:background="@color/color_white"
+    android:layout_marginTop="50dp">
 
 <!--     Pie Chart Card View-->
     <androidx.cardview.widget.CardView

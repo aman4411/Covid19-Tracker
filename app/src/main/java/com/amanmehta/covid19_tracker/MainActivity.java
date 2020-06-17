@@ -1,10 +1,18 @@
 package com.amanmehta.covid19_tracker;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
@@ -17,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.leo.simplearcloader.SimpleArcLoader;
 
@@ -27,7 +36,7 @@ import org.json.JSONObject;
 
 import java.io.StringReader;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
 
     TextView tvCases,tvRecovered,tvCritical,tvActive,tvTodayCases,tvTotalDeaths,tvTodayDeaths,tvTests,tvCountriesAffected;
     ScrollView scrollStats;
@@ -35,11 +44,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     PieChart pieChart;
     Button btnTrack;
     private FirebaseAuth mAuth;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.nav_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
         tvCases = findViewById(R.id.tvCases);
         tvRecovered = findViewById(R.id.tvRecovered);
@@ -55,9 +75,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pieChart = findViewById(R.id.piechart);
         simpleArcLoader = findViewById(R.id.loader);
         btnTrack = findViewById(R.id.btnTrack);
+        mAuth = FirebaseAuth.getInstance();
+        builder = new AlertDialog.Builder(this);
 
         btnTrack.setOnClickListener(this);
-        
+
+        if(mAuth.getCurrentUser() == null){
+            startActivity(new Intent(getApplicationContext(),Login.class));
+        }
         fetchData();
     }
 
@@ -119,5 +144,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == btnTrack){
             startActivity(new Intent(getApplicationContext(),AffectedCountries.class));
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.nav_logout){
+                builder.setMessage("Do You Want to Logout?");
+                builder.setTitle("Alert");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        mAuth.signOut();
+                        finish();
+                        Intent intent = new Intent(getApplicationContext(),Login.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
