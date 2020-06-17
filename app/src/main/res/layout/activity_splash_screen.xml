@@ -23,10 +23,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="COVID-19 TRACKER"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:fontFamily="sans-serif-condensed-medium"
             android:textStyle="bold"
-            android:textColor="@color/color_one"
+            android:textColor="@color/colorPrimary"
             android:layout_gravity="center_horizontal"
             android:layout_margin="30dp">
         </TextView>
