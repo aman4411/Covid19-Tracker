@@ -11,6 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Login"></activity>
         <activity android:name=".Signup" />
+        <activity android:name=".DashBoard" />
+        <activity android:name=".mediaActivity" />
+        <activity android:name=".checkingSymptoms" />
 
         <activity
             android:name=".SplashScreen"

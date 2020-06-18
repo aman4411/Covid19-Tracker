@@ -1,13 +1,5 @@
 package com.amanmehta.covid19_tracker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,6 +10,14 @@ import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,8 +33,6 @@ import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.StringReader;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
 
@@ -149,7 +147,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        if(id == R.id.media){
+            Intent myIntent = new Intent(MainActivity.this, mediaActivity.class);
+//            myIntent.putExtra("key", value); //Optional parameters
+       MainActivity.this.startActivity(myIntent);
+        }
 
+
+        if(id == R.id.test){
+            Intent myIntent1 = new Intent(MainActivity.this, checkingSymptoms.class);
+//            myIntent.putExtra("key", value); //Optional parameters
+            MainActivity.this.startActivity(myIntent1);
+        }
+
+
+        if(id == R.id.dash){
+            Intent myIntent2 = new Intent(MainActivity.this, DashBoard.class);
+//            myIntent.putExtra("key", value); //Optional parameters
+            MainActivity.this.startActivity(myIntent2);
+        }
         if(id == R.id.nav_logout){
                 builder.setMessage("Do You Want to Logout?");
                 builder.setTitle("Alert");
