@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mediaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="Usefull Link"
+                android:onClick="openBrowser"
+                android:src="@drawable/linkone"
+                android:tag="https://www.youtube.com/watch?v=VTjq_BKLeg0" />
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:onClick="openBrowser"
+                android:src="@drawable/linktwo"
+                android:tag="https://www.youtube.com/watch?v=vOMMpYKupXE"
+                android:layout_marginTop="20dp"
+                />
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:onClick="openBrowser"
+                android:src="@drawable/linkthree"
+                android:tag="https://www.youtube.com/watch?v=DPYnKlDxrTk"
+                android:layout_marginTop="20dp"
+                />
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:onClick="openBrowser"
+                android:src="@drawable/linkfour"
+                android:tag="https://www.youtube.com/watch?v=nKcbAB1H1hY"
+                android:layout_marginTop="20dp"
+                />
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:onClick="openBrowser"
+                android:src="@drawable/linkfive"
+                android:tag="https://www.youtube.com/watch?v=-u3mtRjROgs"
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
