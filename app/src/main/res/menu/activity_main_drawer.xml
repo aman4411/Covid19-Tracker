@@ -8,11 +8,11 @@
             android:id="@+id/nav_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_about"
-            android:title="About" />
+            android:id="@+id/test"
+            android:title="Take Test" />
         <item
-            android:id="@+id/nav_contact"
-            android:title="Contact" />
+            android:id="@+id/dash"
+            android:title="DashBoard" />
         <item
             android:id="@+id/media"
             android:title="Media" />

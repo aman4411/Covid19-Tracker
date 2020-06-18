@@ -152,6 +152,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            myIntent.putExtra("key", value); //Optional parameters
        MainActivity.this.startActivity(myIntent);
         }
+
+
+        if(id == R.id.test){
+            Intent myIntent1 = new Intent(MainActivity.this, checkingSymptoms.class);
+//            myIntent.putExtra("key", value); //Optional parameters
+            MainActivity.this.startActivity(myIntent1);
+        }
+
+
+        if(id == R.id.dash){
+            Intent myIntent2 = new Intent(MainActivity.this, DashBoard.class);
+//            myIntent.putExtra("key", value); //Optional parameters
+            MainActivity.this.startActivity(myIntent2);
+        }
         if(id == R.id.nav_logout){
                 builder.setMessage("Do You Want to Logout?");
                 builder.setTitle("Alert");
