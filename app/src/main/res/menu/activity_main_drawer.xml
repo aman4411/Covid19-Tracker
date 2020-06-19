@@ -17,6 +17,9 @@
             android:id="@+id/media"
             android:title="Media" />
 
+        <item android:id="@+id/hello"
+            android:title="Symptoms" />
+
         <item
             android:id="@+id/share_experience"
             android:title="Share Experience" />
@@ -25,13 +28,13 @@
             android:id="@+id/view_experience"
             android:title="View Experiences" />
 
+
     </group>
 
 
     <item android:title="App">
         <menu>
-            <item android:id="@+id/nav_share"
-                android:title="Share" />
+
 
             <item
                 android:id="@+id/nav_logout"
