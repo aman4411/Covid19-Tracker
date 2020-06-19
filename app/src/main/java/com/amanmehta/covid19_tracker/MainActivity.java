@@ -166,6 +166,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            myIntent.putExtra("key", value); //Optional parameters
             MainActivity.this.startActivity(myIntent2);
         }
+if(id == R.id.hello){
+    Intent my3 = new Intent(MainActivity.this, symptomss.class);
+//            myIntent.putExtra("key", value); //Optional parameters
+    MainActivity.this.startActivity(my3);
+}
         if(id == R.id.nav_logout){
                 builder.setMessage("Do You Want to Logout?");
                 builder.setTitle("Alert");
@@ -188,7 +193,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
         }
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
