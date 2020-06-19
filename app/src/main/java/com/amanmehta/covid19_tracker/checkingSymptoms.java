@@ -2,6 +2,7 @@ package com.amanmehta.covid19_tracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -29,6 +31,10 @@ public class checkingSymptoms extends AppCompatActivity {
         listView = findViewById(R.id.listview);
         submit = findViewById(R.id.submit);
         cityV = findViewById(R.id.city);
+
+        getSupportActionBar().setTitle("Take a Test");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         ArrayList <String> symp = new ArrayList <String> ();
@@ -78,5 +84,13 @@ public class checkingSymptoms extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -189,6 +189,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 alertDialog.show();
         }
 
+        if(id == R.id.share_experience){
+            startActivity(new Intent(getApplicationContext(),ShareExperience.class));
+        }
+
+        if(id == R.id.view_experience){
+            startActivity(new Intent(getApplicationContext(),ViewExperiences.class));
+        }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
