@@ -19,6 +19,16 @@
 
         <item android:id="@+id/hello"
             android:title="Symptoms" />
+
+        <item
+            android:id="@+id/share_experience"
+            android:title="Share Experience" />
+
+        <item
+            android:id="@+id/view_experience"
+            android:title="View Experiences" />
+
+
     </group>
 
 

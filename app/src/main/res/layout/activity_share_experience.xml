@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShareExperience">
+
+    <com.leo.simplearcloader.SimpleArcLoader
+        android:visibility="gone"
+        android:id="@+id/loader"
+        android:layout_centerInParent="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:arc_style="simple_arc">
+    </com.leo.simplearcloader.SimpleArcLoader>
+
+    <TextView
+        android:id="@+id/sharetv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share Your Experience"
+        android:textColor="@color/colorPrimary"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_margin="30dp"
+        android:textAllCaps="true">
+    </TextView>
+
+    <EditText
+        android:id="@+id/shareEt"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/edittext_shape"
+        android:layout_margin="30dp"
+        android:padding="6dp"
+        android:gravity="top"
+        android:hint="Write Your Experience here..."
+        android:layout_below="@+id/sharetv">
+    </EditText>
+
+    <Button
+        android:id="@+id/shareBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shareEt"
+        android:layout_margin="30dp"
+        android:text="Share"
+        android:textColor="@color/color_white"
+        android:background="@color/colorPrimary">
+    </Button>
+
+
+</RelativeLayout>

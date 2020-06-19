@@ -11,13 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".symptomss"></activity>
+
+        <activity android:name=".ViewExperiences"></activity>
+        <activity android:name=".ShareExperience" />
+
         <activity android:name=".Login" />
         <activity android:name=".Signup" />
         <activity android:name=".DashBoard" />
         <activity android:name=".mediaActivity" />
         <activity android:name=".checkingSymptoms" />
-
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
